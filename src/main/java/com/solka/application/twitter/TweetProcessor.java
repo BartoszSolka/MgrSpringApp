@@ -31,7 +31,10 @@ public class TweetProcessor {
             initializePlayersMap();
         }
         Status status = (Status) message.getPayload();
-        log.info("Count: {}, Processing: {}", count++, status.getId());
+        log.info("Count: {}, Processing: {} || content: {}",
+                count++,
+                status.getId(),
+                status.getText());
         Arrays.asList(status.getHashtagEntities())
                 .forEach(hashtag -> {
                     String text = hashtag.getText();
