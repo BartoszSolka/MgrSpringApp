@@ -31,10 +31,10 @@ public class TweetProcessor {
             initializePlayersMap();
         }
         Status status = (Status) message.getPayload();
-        log.info("Count: {}, Processing: {} || content: {}",
-                count++,
-                status.getId(),
-                status.getText());
+//        log.info("Count: {}, Processing: {} || content: {}",
+//                count++,
+//                status.getId(),
+//                status.getText());
         Arrays.asList(status.getHashtagEntities())
                 .forEach(hashtag -> {
                     String text = hashtag.getText();
@@ -46,7 +46,7 @@ public class TweetProcessor {
                         tweetRepository.save(tweet);
                     }
                 });
-        log.info("Processed: {}", status.getId());
+//        log.info("Processed: {}", status.getId());
     }
 
     private void initializePlayersMap() {
